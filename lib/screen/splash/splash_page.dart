@@ -19,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
 
   startTime(bool success) async {
-    var _duration = const Duration(seconds: 25);
+    var _duration = const Duration(seconds: 3);
     if (success) {
       return Timer(_duration, changeLanguageScreen);
     }
@@ -45,6 +45,7 @@ class _SplashScreenState extends State<SplashScreen> {
         children: <Widget>[
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               SafeArea(
                 child: Center(
@@ -53,23 +54,22 @@ class _SplashScreenState extends State<SplashScreen> {
               ),
               Text(
                 Words.mainText,
-                textScaleFactor: 1.0,
                 textAlign: TextAlign.center,
-                style: FontStyle.appBarStyle20,
+                style: FontStyle.headline1,
               ),
               const SizedBox(height: 30),
               const CupertinoActivityIndicator(),
             ],
           ),
           Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(20.0),
             child: Align(
               alignment: Alignment.bottomCenter,
               child: Text(
                 Words.copyright,
                 textScaleFactor: 1.0,
                 textAlign: TextAlign.center,
-                style: FontStyle.title12,
+                style: FontStyle.titleListPrimary,
               ),
             ),
           ),

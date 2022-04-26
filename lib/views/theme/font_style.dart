@@ -19,7 +19,7 @@ class FontStyle {
 
   static TextStyle appBarStyle20 = TextStyle(
     fontSize: 20,
-    fontWeight: FontWeight.w600,
+    fontWeight: FontWeight.bold,
     color: AppColor.primaryColor,
     letterSpacing: 0.1,
   );
@@ -37,10 +37,10 @@ class FontStyle {
     color: AppColor.primaryColor,
   );
 
-  static TextStyle headline1 = TextStyle(
-    fontSize: 24,
-    color: AppColor.primaryColor,
-    fontWeight: FontWeight.w700,
+  static TextStyle headline1 = const TextStyle(
+    fontSize: 14,
+    color: Colors.white,
+    fontWeight: FontWeight.w500,
   );
 
   static TextStyle titleStyle = const TextStyle(
