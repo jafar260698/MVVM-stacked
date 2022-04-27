@@ -8,6 +8,6 @@ class BottomMainViewModel extends BaseViewModel {
 
   TabController? get controller => _controller;
 
-  List<String?> year = ["Iyun", "Iyul" , "Avgust"];
+  List<String?> year = ["Барчаси", "Чиқувчи" , "Топшириқлар"];
 
 }

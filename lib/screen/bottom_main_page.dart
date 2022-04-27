@@ -22,7 +22,7 @@ class BottomMainPage extends StatelessWidget {
         child: Scaffold(
             appBar: appBarPage(
               bottom: PreferredSize(
-                preferredSize: const Size.fromHeight(50.0),
+                preferredSize: const Size.fromHeight(60.0),
                 child: Align(
                   alignment: Alignment.center,
                   child: TabBar(
@@ -33,7 +33,7 @@ class BottomMainPage extends StatelessWidget {
                           return Tab(text: item);
                         }),
                     isScrollable: true,
-                    labelPadding: const EdgeInsets.only(left: 30.0, right: 30.0),
+                    labelPadding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 5, bottom: 5),
                     indicatorSize: TabBarIndicatorSize.label,
                     labelColor: themeData.primaryColor,
                     unselectedLabelColor: themeData.accentIconTheme.color!.withOpacity(0.3),
@@ -42,7 +42,7 @@ class BottomMainPage extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                         fontFamily: 'Montserrat'),
                     indicator: MaterialIndicator(
-                        height: 4,
+                        height: 3,
                         topLeftRadius: 4,
                         topRightRadius: 4,
                         bottomLeftRadius: 0,
@@ -53,58 +53,7 @@ class BottomMainPage extends StatelessWidget {
                 ),
               ),
             ),
-            body: CustomScrollView(
-              physics: const BouncingScrollPhysics(),
-              slivers: <Widget>[
-                SliverAppBar(
-                  floating: true,
-                  pinned: true,
-                  elevation: 5,
-                  title: Center(
-                    child: Text(
-                      Words.myDocument,
-                      style: FontStyle.appBarStyle,
-                    ),
-                  ),
-                  leading: Builder(
-                    builder: (context) {
-                      return InkWell(
-                        onTap: () => Scaffold.of(context).openDrawer(),
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 20.0, right: 8.0),
-                          child: SvgPicture.asset(
-                            'assets/icons/menu.svg',
-                            height: 16,
-                            width: 24,
-                            color: themeId == "dark"
-                                  ? Colors.white
-                                  : Colors.black
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                  actions: [
-                    InkWell(
-                      splashColor: Colors.transparent,
-                      highlightColor: Colors.transparent,
-                      onTap: () {
-
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 8.0, right: 20.0),
-                        child: SvgPicture.asset(
-                            'assets/icons/search.svg',
-                            color: themeId == "dark"
-                                ? Colors.white
-                                : Colors.black),
-                      ),
-                    ),
-                  ],
-                ),
-                bottomPage(context, model)
-              ],
-            ),
+            body: getBodyUI(context, model),
             drawer: Theme(
               data: Theme.of(context).copyWith(
                 canvasColor:themeData.cardColor
@@ -316,19 +265,13 @@ class BottomMainPage extends StatelessWidget {
         child: child);
   }
 
-  Widget bottomPage(BuildContext context, BottomMainViewModel model) {
-    Widget result = getBodyUI(context, model);
-    return SliverList(
-      delegate: SliverChildBuilderDelegate((ctx, index) => result, childCount: 1),
-    );
-  }
 
   AppBar appBarPage({
     BuildContext? context,
     PreferredSizeWidget? bottom,
   }) {
     return AppBar(
-      elevation: 1.0,
+      elevation: 3.0,
       shadowColor: Colors.black45,
       centerTitle: true,
       title: Center(
