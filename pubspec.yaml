@@ -17,6 +17,7 @@ dependencies:
   modal_bottom_sheet: ^2.0.0
   flutter_svg: ^1.0.3
   theme_provider: 0.5.0
+  tab_indicator_styler: ^2.0.0
 
 
   # Provider + Stack pattern

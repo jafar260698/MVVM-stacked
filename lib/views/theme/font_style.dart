@@ -24,12 +24,13 @@ class FontStyle {
     letterSpacing: 0.1,
   );
 
-  static TextStyle appBarStyle = TextStyle(
+  static TextStyle appBarStyle = const TextStyle(
     fontSize: 18,
-    fontWeight: FontWeight.bold,
-    color: AppColor.primaryColor,
+    fontWeight: FontWeight.w500,
+    color: Colors.white,
     letterSpacing: 0.1,
   );
+
 
   static TextStyle headingColorStyle = TextStyle(
     fontSize: 26,
