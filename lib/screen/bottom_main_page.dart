@@ -210,7 +210,7 @@ class BottomMainPage extends StatelessWidget {
         CardShadow(
           child: ListView.separated(
               physics: const BouncingScrollPhysics(),
-              padding: const EdgeInsets.only(top: 8, bottom: 20),
+              padding: const EdgeInsets.only(top: 10, bottom: 10),
               shrinkWrap: true,
               itemCount: model.mainDashboardList.length,
               separatorBuilder: (context, int) {
@@ -230,7 +230,7 @@ class BottomMainPage extends StatelessWidget {
                       ),
                     ),
                     onTap: () {
-                      conditionModal(context, model);
+
                     });
               }),
         ),
