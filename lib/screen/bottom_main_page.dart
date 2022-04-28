@@ -184,59 +184,7 @@ class BottomMainPage extends StatelessWidget {
             child: SelectUI(
               labelText: model.selectedItemTitle,
               text: '',
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  SizedBox(height: SizeConfig.calculateBlockHorizontal(10)),
-                  Text(
-                    Words.condition,
-                    style: FontStyle.appBarStyle20,
-                  ),
-                  SizedBox(height: SizeConfig.calculateBlockHorizontal(20)),
-                  ListView.builder(
-                      physics: const BouncingScrollPhysics(),
-                      padding: const EdgeInsets.only(top: 8, bottom: 20),
-                      shrinkWrap: true,
-                      itemCount: model.listOfCondition.length,
-                      itemBuilder: (context, index) {
-                        return InkWell(
-                            child: Padding(
-                              padding: const EdgeInsets.all(13.0),
-                              child: ContainerUI(
-                                labelText: model.listOfCondition[index].title,
-                                color: model.listOfCondition[index].color,
-                                icon: SvgPicture.asset(
-                                  model.listOfCondition[index].iconName ?? "",
-                                  width: 26,
-                                  height: 26,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-                            onTap: () {
-                              Navigator.of(context).pop();
-                            });
-                      }),
-                  InkWell(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 10),
-                      child: CircleAvatar(
-                        backgroundColor: Colors.grey.withOpacity(0.4),
-                        radius: 36,
-                        child: const CircleAvatar(
-                            foregroundColor: Colors.grey,
-                            radius: 35,
-                            backgroundColor: Colors.white,
-                            child: Icon(Icons.close, size: 30, color: Colors.black87)
-                        ),
-                      ),
-                    ),
-                  )
-                ],
-              ),
+              child: conditionModal(context, model),
             ),
           ),
           SizedBox(height: SizeConfig.calculateBlockVertical(30)),
@@ -282,7 +230,7 @@ class BottomMainPage extends StatelessWidget {
                       ),
                     ),
                     onTap: () {
-                      Navigator.of(context).pop();
+                      conditionModal(context, model);
                     });
               }),
         ),
@@ -291,7 +239,63 @@ class BottomMainPage extends StatelessWidget {
     );
   }
 
-  void showBottomModalSheet(BuildContext context,BottomMainViewModel model) {
+  Widget conditionModal(BuildContext context,BottomMainViewModel model) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        SizedBox(height: SizeConfig.calculateBlockHorizontal(10)),
+        Text(
+          Words.condition,
+          style: FontStyle.appBarStyle20,
+        ),
+        SizedBox(height: SizeConfig.calculateBlockHorizontal(20)),
+        ListView.builder(
+            physics: const BouncingScrollPhysics(),
+            padding: const EdgeInsets.only(top: 8, bottom: 20),
+            shrinkWrap: true,
+            itemCount: model.listOfCondition.length,
+            itemBuilder: (context, index) {
+              return InkWell(
+                  child: Padding(
+                    padding: const EdgeInsets.all(13.0),
+                    child: ContainerUI(
+                      labelText: model.listOfCondition[index].title,
+                      color: model.listOfCondition[index].color,
+                      icon: SvgPicture.asset(
+                        model.listOfCondition[index].iconName ?? "",
+                        width: 26,
+                        height: 26,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                  onTap: () {
+                    Navigator.of(context).pop();
+                  });
+            }),
+        InkWell(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10),
+            child: CircleAvatar(
+              backgroundColor: Colors.grey.withOpacity(0.4),
+              radius: 36,
+              child: const CircleAvatar(
+                  foregroundColor: Colors.grey,
+                  radius: 35,
+                  backgroundColor: Colors.white,
+                  child: Icon(Icons.close, size: 30, color: Colors.black87)
+              ),
+            ),
+          ),
+        )
+      ],
+    );
+  }
+
+  void showBottomModalSheet(BuildContext context, BottomMainViewModel model) {
     showModal(context, Column(
       mainAxisSize: MainAxisSize.min,
       children: [
