@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:mock_app/views/theme/font_style.dart';
-import 'package:theme_provider/theme_provider.dart';
-
 
 class ContainerUI extends StatelessWidget {
    const ContainerUI({
@@ -19,7 +17,6 @@ class ContainerUI extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var theme = ThemeProvider.controllerOf(context).theme.data;
     return GestureDetector(
       onTap: () => {
 
@@ -40,7 +37,7 @@ class ContainerUI extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 20),
                 child: CircleAvatar(
                     radius: 25,
-                    backgroundColor: color?.withAlpha(20),
+                    backgroundColor: color,
                     child: icon ?? SvgPicture.asset(
                       "assets/svg/services/arrow_right.svg",
                       width: 12,

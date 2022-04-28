@@ -13,17 +13,9 @@ class BottomModalSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var theme = ThemeProvider.controllerOf(context).theme.data;
-    return Container(
-      margin: EdgeInsets.only(top: 8, left: 8, right: 8, bottom: Platform.isAndroid ? 8.0 : 4.0),
-      decoration: BoxDecoration(
-        color: theme.backgroundColor,
-        borderRadius: BorderRadius.all(Radius.circular(Platform.isAndroid ? 26.0 : 40)),
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [_buildHandle(context), if (child != null) child!],
-      ),
+    return Column(
+      mainAxisSize: MainAxisSize.max,
+      children: [_buildHandle(context), if (child != null) child!],
     );
   }
 

@@ -17,18 +17,25 @@ class FontStyle {
       topLeft: Radius.circular(30.0),
       topRight: Radius.circular(30.0));
 
-  static TextStyle appBarStyle20 = TextStyle(
-    fontSize: 20,
-    fontWeight: FontWeight.bold,
-    letterSpacing: 0.1,
+  static TextStyle appBarStyle20 = const TextStyle(
+    fontSize: 22,
+    fontWeight: FontWeight.w600,
+    letterSpacing: 0.2,
   );
 
   static TextStyle appBarStyle = const TextStyle(
     fontSize: 18,
-    fontWeight: FontWeight.w500,
+    fontWeight: FontWeight.w600,
+    color: Colors.black87,
     letterSpacing: 0.1,
   );
 
+  static TextStyle appBarStyleWhite = const TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w500,
+    color: Colors.white,
+    letterSpacing: 0.1,
+  );
 
   static TextStyle headingColorStyle = TextStyle(
     fontSize: 26,

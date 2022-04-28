@@ -27,7 +27,7 @@ AppBar appBarPage({
                 'assets/icons/menu.svg',
                 height: 16,
                 width: 24,
-                color: Colors.white
+                color: Colors.black87,
             ),
           ),
         );
@@ -44,7 +44,8 @@ AppBar appBarPage({
           padding: const EdgeInsets.only(left: 8.0, right: 20.0),
           child: SvgPicture.asset(
               'assets/icons/search.svg',
-              color: Colors.white),
+               color: Colors.black87,
+          ),
         ),
       ),
     ],

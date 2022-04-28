@@ -5,5 +5,7 @@ class Words {
   static String copyright = "Ўзбекистон Республикаси Президентининг фармон, қарор, фармойиш ва топшириқлари мониторинг қилиш тизими";
   static String myDocument = "Менинг ҳужжатларим";
   static String condition = "Ҳолати";
+  static String document = "Ҳужжат";
+  static String today = "Бугун";
 
 }
