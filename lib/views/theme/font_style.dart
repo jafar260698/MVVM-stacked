@@ -20,14 +20,12 @@ class FontStyle {
   static TextStyle appBarStyle20 = TextStyle(
     fontSize: 20,
     fontWeight: FontWeight.bold,
-    color: AppColor.primaryColor,
     letterSpacing: 0.1,
   );
 
   static TextStyle appBarStyle = const TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.w500,
-    color: Colors.white,
     letterSpacing: 0.1,
   );
 

@@ -66,6 +66,7 @@ flutter:
     - assets/svg/
     - assets/icons/
     - assets/font/
+    - assets/icons/condition/
 
 
   uses-material-design: true

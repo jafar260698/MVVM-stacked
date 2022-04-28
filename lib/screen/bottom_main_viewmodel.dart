@@ -8,6 +8,11 @@ class BottomMainViewModel extends BaseViewModel {
 
   TabController? get controller => _controller;
 
-  List<String?> year = ["Барчаси", "Чиқувчи" , "Топшириқлар"];
+  List<String?> tabBar = ["Барчаси", "Чиқувчи" , "Топшириқлар"];
+
+  var listOfCondition = <String>["Янги", "Имзоланган", "Имзоланмаган", "Рад этилган", "Қидирувни тозалаш"];
+
+  final String? _selectedItemTitle = "Ҳолати";
+  String? get selectedItemTitle => _selectedItemTitle;
 
 }

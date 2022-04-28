@@ -8,6 +8,9 @@ import 'package:tab_indicator_styler/tab_indicator_styler.dart';
 import 'package:theme_provider/theme_provider.dart';
 import '../utils/device_size_config.dart';
 import '../utils/strings.dart';
+import '../views/components/container_ui.dart';
+import '../views/components/select_ui.dart';
+import '../views/widgets/custom_appbar.dart';
 import 'bottom_main_viewmodel.dart';
 
 class BottomMainPage extends StatelessWidget {
@@ -15,7 +18,6 @@ class BottomMainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     var themeId = ThemeProvider.controllerOf(context).theme.id;
     var themeData = ThemeProvider.controllerOf(context).theme.data;
-
     return ViewModelBuilder<BottomMainViewModel>.reactive(
       builder: (context, model, child) =>  DefaultTabController(
         length: 3,
@@ -27,9 +29,9 @@ class BottomMainPage extends StatelessWidget {
                   alignment: Alignment.center,
                   child: TabBar(
                     controller: model.controller,
-                    tabs: List<Widget>.generate(model.year.length,
+                    tabs: List<Widget>.generate(model.tabBar.length,
                             (int index) {
-                          var item = model.year[index];
+                          var item = model.tabBar[index];
                           return Tab(text: item);
                         }),
                     isScrollable: true,
@@ -92,8 +94,7 @@ class BottomMainPage extends StatelessWidget {
                                 )
                               ],
                             ),
-                            SizedBox(
-                                height: SizeConfig.calculateBlockVertical(4)),
+                            SizedBox(height: SizeConfig.calculateBlockVertical(4)),
                             SizedBox(height: 24),
                           ],
                         ),
@@ -190,7 +191,48 @@ class BottomMainPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          getMyCash(context, model),
+          SelectUI(
+            labelText: model.selectedItemTitle,
+            text: '',
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                const SizedBox(height: 10),
+                Text(
+                  Words.condition,
+                  style: FontStyle.appBarStyle20,
+                ),
+                const SizedBox(height: 10),
+                ListView.builder(
+                    padding: const EdgeInsets.only(top: 8, bottom: 20),
+                    shrinkWrap: true,
+                    itemCount: model.listOfCondition.length,
+                    itemBuilder: (context, index) {
+                      return InkWell(
+                          child: Padding(
+                            padding: const EdgeInsets.all(13.0),
+                            child: ContainerUI(
+                              labelText: model.listOfCondition[index],
+                              color: Colors.green,
+                              icon: null,
+                            ),
+                          ),
+                          onTap: () {
+                            Navigator.of(context).pop();
+                          });
+                    }),
+                const Padding(
+                  padding: EdgeInsets.symmetric(vertical: 10),
+                  child: CircleAvatar(
+                      foregroundColor: Colors.grey,
+                      radius: 35,
+                      backgroundColor: Colors.white,
+                      child: Icon(Icons.close, size: 30, color: Colors.black87)
+                  ),
+                )
+              ],
+            ),
+          ),
           getMyCards(context, model),
           SizedBox(height: SizeConfig.calculateBlockVertical(42))
         ],
@@ -201,7 +243,6 @@ class BottomMainPage extends StatelessWidget {
 
   Widget getMyCash(BuildContext context, BottomMainViewModel model) {
     var themeData = ThemeProvider.controllerOf(context).theme.data;
-
     double _tabletSumPadding = 30.0;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -249,69 +290,4 @@ class BottomMainPage extends StatelessWidget {
       );
   }
 
-  Widget cardContainer(model,
-      {required Widget child, required BuildContext context}) {
-    var themeData = ThemeProvider.controllerOf(context).theme.data;
-
-    return Container(
-        width: MediaQuery.of(context).size.width * 0.8,
-        margin: EdgeInsets.only(
-            right: SizeConfig.calculateBlockHorizontal(
-                model.cardList.length > 1 ? 13.0 : 0.0)),
-        decoration: BoxDecoration(
-          color: themeData.cardColor,
-          borderRadius: BorderRadius.circular(16),
-        ),
-        child: child);
-  }
-
-
-  AppBar appBarPage({
-    BuildContext? context,
-    PreferredSizeWidget? bottom,
-  }) {
-    return AppBar(
-      elevation: 3.0,
-      shadowColor: Colors.black45,
-      centerTitle: true,
-      title: Center(
-        child: Text(
-          Words.myDocument,
-          style: FontStyle.appBarStyle,
-        ),
-      ),
-      leading: Builder(
-        builder: (context) {
-          return InkWell(
-            onTap: () => Scaffold.of(context).openDrawer(),
-            child: Padding(
-              padding: const EdgeInsets.only(left: 20.0, right: 8.0),
-              child: SvgPicture.asset(
-                  'assets/icons/menu.svg',
-                  height: 16,
-                  width: 24,
-                  color: Colors.white
-              ),
-            ),
-          );
-        },
-      ),
-      actions: [
-        InkWell(
-          splashColor: Colors.transparent,
-          highlightColor: Colors.transparent,
-          onTap: () {
-
-          },
-          child: Padding(
-            padding: const EdgeInsets.only(left: 8.0, right: 20.0),
-            child: SvgPicture.asset(
-                'assets/icons/search.svg',
-                color: Colors.white),
-          ),
-        ),
-      ],
-      bottom: bottom,
-    );
-  }
 }
