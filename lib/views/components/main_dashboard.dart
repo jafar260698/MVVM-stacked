@@ -73,11 +73,11 @@ class MainDashboardUI extends StatelessWidget {
                           height: 16,
                           color: Colors.white,
                         ),
-                        const SizedBox(width: 10),
+                        const SizedBox(width: 8),
                         Text(
                           iconText!,
                           style: const TextStyle(
-                            fontSize: 16,
+                            fontSize: 14,
                             fontWeight: FontWeight.w500,
                             color: Colors.white,
                             letterSpacing: 0.1,

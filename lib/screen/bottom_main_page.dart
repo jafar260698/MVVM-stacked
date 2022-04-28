@@ -187,12 +187,12 @@ class BottomMainPage extends StatelessWidget {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const SizedBox(height: 20),
+                  SizedBox(height: SizeConfig.calculateBlockHorizontal(10)),
                   Text(
                     Words.condition,
                     style: FontStyle.appBarStyle20,
                   ),
-                  const SizedBox(height: 25),
+                  SizedBox(height: SizeConfig.calculateBlockHorizontal(20)),
                   ListView.builder(
                       physics: const BouncingScrollPhysics(),
                       padding: const EdgeInsets.only(top: 8, bottom: 20),
@@ -217,16 +217,21 @@ class BottomMainPage extends StatelessWidget {
                               Navigator.of(context).pop();
                             });
                       }),
-                  Padding(
-                    padding: EdgeInsets.symmetric(vertical: 10),
-                    child: CircleAvatar(
-                      backgroundColor: Colors.grey.withOpacity(0.4),
-                      radius: 36,
-                      child: const CircleAvatar(
-                          foregroundColor: Colors.grey,
-                          radius: 35,
-                          backgroundColor: Colors.white,
-                          child: Icon(Icons.close, size: 30, color: Colors.black87)
+                  InkWell(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 10),
+                      child: CircleAvatar(
+                        backgroundColor: Colors.grey.withOpacity(0.4),
+                        radius: 36,
+                        child: const CircleAvatar(
+                            foregroundColor: Colors.grey,
+                            radius: 35,
+                            backgroundColor: Colors.white,
+                            child: Icon(Icons.close, size: 30, color: Colors.black87)
+                        ),
                       ),
                     ),
                   )
@@ -234,13 +239,12 @@ class BottomMainPage extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: SizeConfig.calculateBlockVertical(40)),
+          SizedBox(height: SizeConfig.calculateBlockVertical(30)),
           getMyDashboard(context, model),
         ],
       ),
     );
   }
-
 
   Widget getMyDashboard(BuildContext context, BottomMainViewModel model) {
     return Column(
@@ -318,16 +322,21 @@ class BottomMainPage extends StatelessWidget {
                     Navigator.of(context).pop();
                   });
             }),
-        Padding(
-          padding: EdgeInsets.symmetric(vertical: 10),
-          child: CircleAvatar(
-            backgroundColor: Colors.grey.withOpacity(0.4),
-            radius: 36,
-            child: const CircleAvatar(
-                foregroundColor: Colors.grey,
-                radius: 35,
-                backgroundColor: Colors.white,
-                child: Icon(Icons.close, size: 30, color: Colors.black87)
+        InkWell(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10),
+            child: CircleAvatar(
+              backgroundColor: Colors.grey.withOpacity(0.4),
+              radius: 36,
+              child: const CircleAvatar(
+                  foregroundColor: Colors.grey,
+                  radius: 35,
+                  backgroundColor: Colors.white,
+                  child: Icon(Icons.close, size: 30, color: Colors.black87)
+              ),
             ),
           ),
         )

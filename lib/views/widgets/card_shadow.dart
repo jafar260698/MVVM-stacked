@@ -23,7 +23,7 @@ class CardShadow extends StatelessWidget {
       shadowColor: Colors.black26,
       margin: EdgeInsets.all(0),
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(13),
+        borderRadius: BorderRadius.circular(5),
       ),
       child: child,
     );
