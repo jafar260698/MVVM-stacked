@@ -90,11 +90,9 @@ class SelectUI extends StatelessWidget {
                       Expanded(
                         child: Text(
                           labelText!,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 17,
                             fontWeight: FontWeight.w500,
-                            color: theme.accentIconTheme.color!
-                                .withOpacity(isHint ? 0.3 : 1),
                           ),
                         ),
                       ),

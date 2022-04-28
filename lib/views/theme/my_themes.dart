@@ -25,6 +25,7 @@ class MyThemes {
     fontFamily: 'Montserrat',
     primarySwatch: primary,
     brightness: Brightness.light,
+    primaryColorBrightness: Brightness.light,
     appBarTheme: const AppBarTheme(
       color: Color(0xffF6F6FA),
     ),
@@ -43,6 +44,10 @@ class MyThemes {
         ),
       ),
     ),
+    accentIconTheme: const IconThemeData(
+      color: Color(0xff282F38),
+    ),
+    cursorColor: Color(0xff2E2F40),
   );
 
   static final ThemeData darkTheme = ThemeData(
@@ -56,6 +61,7 @@ class MyThemes {
     primaryColor: Color(0xff325ECD),
     backgroundColor: Color(0xff17222C),
     scaffoldBackgroundColor: Color(0xff17222C),
+    accentColor: Color(0xff325ECD),
     cardColor: Color(0xff253442),
     bottomSheetTheme: const BottomSheetThemeData(
       modalBackgroundColor: Color(0xff17222C),
@@ -69,6 +75,9 @@ class MyThemes {
           fontSize: 18,
         ),
       ),
+    ),
+    accentIconTheme: const IconThemeData(
+      color: Color(0xffEFEFEF),
     ),
   );
 }
