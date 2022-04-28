@@ -4,7 +4,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mock_app/providers/router.gr.dart';
-import 'package:mock_app/screen/bottom_main_page.dart';
 import 'package:mock_app/views/theme/app_color.dart';
 import 'package:mock_app/views/theme/font_style.dart';
 import '../../utils/device_size_config.dart';
@@ -59,7 +58,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 style: FontStyle.headline1,
               ),
               const SizedBox(height: 30),
-              const CupertinoActivityIndicator(),
+              const CupertinoActivityIndicator(color: Colors.white),
             ],
           ),
           Padding(

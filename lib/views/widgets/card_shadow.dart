@@ -21,7 +21,7 @@ class CardShadow extends StatelessWidget {
       elevation: 6.0,
       color: color ?? ThemeProvider.controllerOf(context).theme.data.cardColor,
       shadowColor: Colors.black26,
-      margin: EdgeInsets.all(0),
+      margin: const EdgeInsets.all(0),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(5),
       ),
