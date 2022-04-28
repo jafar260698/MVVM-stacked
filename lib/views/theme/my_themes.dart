@@ -1,21 +1,22 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mock_app/views/theme/app_color.dart';
 
 enum MyThemeKeys { LIGHT, DARK }
 
 const MaterialColor primary = MaterialColor(
   0xff325ECD,
   <int, Color>{
-    50:   Color(0xff325ECD),
-    100:  Color(0xff325ECD),
-    200:  Color(0xff325ECD),
-    300:  Color(0xff325ECD),
-    400:  Color(0xff325ECD),
-    500:  Color(0xff325ECD),
-    600:  Color(0xff325ECD),
-    700:  Color(0xff325ECD),
-    800:  Color(0xff325ECD),
-    900:  Color(0xff325ECD),
+    50:   Color.fromRGBO(100, 90, 255, 1),
+    100:  Color.fromRGBO(100, 90, 255, 1),
+    200:  Color.fromRGBO(100, 90, 255, 1),
+    300:  Color.fromRGBO(100, 90, 255, 1),
+    400:  Color.fromRGBO(100, 90, 255, 1),
+    500:  Color.fromRGBO(100, 90, 255, 1),
+    600:  Color.fromRGBO(100, 90, 255, 1),
+    700:  Color.fromRGBO(100, 90, 255, 1),
+    800:  Color.fromRGBO(100, 90, 255, 1),
+    900:  Color.fromRGBO(100, 90, 255, 1),
   },
 );
 
@@ -24,19 +25,17 @@ class MyThemes {
     fontFamily: 'Montserrat',
     primarySwatch: primary,
     brightness: Brightness.light,
-    primaryColorBrightness: Brightness.light,
     appBarTheme: const AppBarTheme(
       color: Color(0xffF6F6FA),
     ),
-    primaryColor: Color(0xff325ECD),
-    accentColor: const Color(0xff325ECD),
+    primaryColor: AppColor.primaryColor,
     backgroundColor: Color(0xffF6F6FA),
     scaffoldBackgroundColor: Color(0xffF6F6FA),
     cardColor: Color(0xffFFFFFF),
-    focusColor: Color(0xff325ECD),
-    bottomAppBarColor: Color(0xff325ECD),
+    focusColor: AppColor.primaryColor,
+    bottomAppBarColor: AppColor.primaryColor,
     cupertinoOverrideTheme: const CupertinoThemeData(
-      primaryColor: Color(0xff325ECD),
+      primaryColor: AppColor.primaryColor,
       textTheme: CupertinoTextThemeData(
         dateTimePickerTextStyle: TextStyle(
           color: Colors.black,
@@ -44,10 +43,6 @@ class MyThemes {
         ),
       ),
     ),
-    accentIconTheme: const IconThemeData(
-      color: Color(0xff282F38),
-    ),
-    cursorColor: Color(0xff2E2F40),
   );
 
   static final ThemeData darkTheme = ThemeData(
@@ -61,7 +56,6 @@ class MyThemes {
     primaryColor: Color(0xff325ECD),
     backgroundColor: Color(0xff17222C),
     scaffoldBackgroundColor: Color(0xff17222C),
-    accentColor: Color(0xff325ECD),
     cardColor: Color(0xff253442),
     bottomSheetTheme: const BottomSheetThemeData(
       modalBackgroundColor: Color(0xff17222C),
@@ -75,9 +69,6 @@ class MyThemes {
           fontSize: 18,
         ),
       ),
-    ),
-    accentIconTheme: const IconThemeData(
-      color: Color(0xffEFEFEF),
     ),
   );
 }

@@ -7,7 +7,7 @@ class AppColor {
   static final Color greyDisabled = Color(0xffEFEFEF);
   static final Color darkBackgroundDrawer = Color(0xff253442);
   static final Color lightBlueBackground = Color(0xffF6F6FA);
-  static const Color primaryColor = const Color.fromRGBO(100, 90, 255, 1);
+  static const Color primaryColor = Color.fromRGBO(100, 90, 255, 1);
   static final Color colorSuccess = Color(0xff00BA88);
   static const Color splashBackground = Color.fromRGBO(32, 41, 58, 1);
   static const Color drawerBackground = Color.fromRGBO(24, 32, 47, 1);

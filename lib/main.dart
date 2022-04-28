@@ -91,7 +91,7 @@ class CustomThemeProvider extends StatelessWidget {
       defaultThemeId: 'light',
       themes: <AppTheme>[
         AppTheme(id: 'light', data: MyThemes.lightTheme, description: 'light'),
-        AppTheme(id: 'dark', data: MyThemes.darkTheme, description: 'dark'),
+        AppTheme(id: 'dark', data: MyThemes.lightTheme, description: 'dark'),
       ],
       saveThemesOnChange: true,
       loadThemeOnInit: false,
@@ -102,7 +102,7 @@ class CustomThemeProvider extends StatelessWidget {
         } else {
           Brightness platformBrightness = SchedulerBinding.instance!.window.platformBrightness;
           if (platformBrightness == Brightness.dark) {
-            controller.setTheme('dark');
+            controller.setTheme('light');
           } else {
             controller.setTheme('light');
           }
